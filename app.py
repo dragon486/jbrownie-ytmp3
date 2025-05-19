@@ -45,14 +45,16 @@ def download():
     return send_file(filepath + '.' + ext, as_attachment=True)
 
 # ✅ Route for robots.txt
-@app.route("/robots.txt")
+@app.route('/robots.txt')
 def robots():
-    return send_from_directory('.', 'robots.txt')
+    return send_file('robots.txt')
+
 
 # ✅ Route for sitemap.xml
-@app.route("/sitemap.xml")
+@app.route('/sitemap.xml')
 def sitemap():
-    return send_from_directory('.', 'sitemap.xml')
+    return send_file('sitemap.xml')
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
