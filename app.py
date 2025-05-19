@@ -1,4 +1,4 @@
-from flask import Flask, request, send_file, render_template
+from flask import Flask, request, send_file, render_template, send_from_directory
 import yt_dlp
 import os
 import uuid
@@ -44,9 +44,16 @@ def download():
     ext = 'mp3' if format == 'mp3' else 'mp4'
     return send_file(filepath + '.' + ext, as_attachment=True)
 
+# ✅ Route for robots.txt
+@app.route("/robots.txt")
+def robots():
+    return send_from_directory('.', 'robots.txt')
 
+# ✅ Route for sitemap.xml
+@app.route("/sitemap.xml")
+def sitemap():
+    return send_from_directory('.', 'sitemap.xml')
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
-
