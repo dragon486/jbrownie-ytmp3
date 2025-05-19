@@ -1,4 +1,5 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://jbrownie-ytmp3.onrender.com
+Sitemap: https://jbrownie-ytmp3.onrender.com/sitemap.xml
+
